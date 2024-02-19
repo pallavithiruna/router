@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import "./sb-admin-2.min.css";
+// import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+import Dashboard from "./Dash/Dashboard"
+import Login from './Login/Login';
+import Portal from './Portal';
+import Charts from './Charts/Charts';
+import Cards from './Cards/Cards';
+import Button from './Buttons/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/portal" element={<Portal />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="charts" element={<Charts />} />
+        <Route path="cards" element={<Cards />} />
+        <Route path="buttons" element={<Button />} />
+      </Route>
+
+    </Routes>
+
   );
 }
 
